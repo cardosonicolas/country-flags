@@ -1,0 +1,325 @@
+[
+  {
+    "name": "Antarctica",
+    "topLevelDomain": [".aq"],
+    "alpha2Code": "AQ",
+    "alpha3Code": "ATA",
+    "callingCodes": ["672"],
+    "capital": "",
+    "altSpellings": [],
+    "region": "Polar",
+    "subregion": "",
+    "population": 1000,
+    "latlng": [-74.65, 4.48],
+    "demonym": "",
+    "area": 14000000,
+    "gini": null,
+    "timezones": [
+      "UTC-03:00",
+      "UTC+03:00",
+      "UTC+05:00",
+      "UTC+06:00",
+      "UTC+07:00",
+      "UTC+08:00",
+      "UTC+10:00",
+      "UTC+12:00"
+    ],
+    "borders": [],
+    "nativeName": "Antarctica",
+    "numericCode": "010",
+    "currencies": [
+      {
+        "code": "AUD",
+        "name": "Australian dollar",
+        "symbol": "$"
+      },
+      {
+        "code": "GBP",
+        "name": "British pound",
+        "symbol": "£"
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "en",
+        "iso639_2": "eng",
+        "name": "English",
+        "nativeName": "English"
+      },
+      {
+        "iso639_1": "ru",
+        "iso639_2": "rus",
+        "name": "Russian",
+        "nativeName": "Русский"
+      }
+    ],
+    "translations": {
+      "de": "Antarktika",
+      "es": "Antártida",
+      "fr": "Antarctique",
+      "ja": "南極大陸",
+      "it": "Antartide",
+      "br": "Antártida",
+      "pt": "Antárctida",
+      "nl": "Antarctica",
+      "hr": "Antarktika",
+      "fa": "جنوبگان"
+    },
+    "flag": "https://restcountries.eu/data/ata.svg",
+    "regionalBlocs": [],
+    "cioc": ""
+  },
+  {
+    "name": "Antigua and Barbuda",
+    "topLevelDomain": [".ag"],
+    "alpha2Code": "AG",
+    "alpha3Code": "ATG",
+    "callingCodes": ["1268"],
+    "capital": "Saint John's",
+    "altSpellings": ["AG"],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "population": 86295,
+    "latlng": [17.05, -61.8],
+    "demonym": "Antiguan, Barbudan",
+    "area": 442,
+    "gini": null,
+    "timezones": ["UTC-04:00"],
+    "borders": [],
+    "nativeName": "Antigua and Barbuda",
+    "numericCode": "028",
+    "currencies": [
+      {
+        "code": "XCD",
+        "name": "East Caribbean dollar",
+        "symbol": "$"
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "en",
+        "iso639_2": "eng",
+        "name": "English",
+        "nativeName": "English"
+      }
+    ],
+    "translations": {
+      "de": "Antigua und Barbuda",
+      "es": "Antigua y Barbuda",
+      "fr": "Antigua-et-Barbuda",
+      "ja": "アンティグア・バーブーダ",
+      "it": "Antigua e Barbuda",
+      "br": "Antígua e Barbuda",
+      "pt": "Antígua e Barbuda",
+      "nl": "Antigua en Barbuda",
+      "hr": "Antigva i Barbuda",
+      "fa": "آنتیگوا و باربودا"
+    },
+    "flag": "https://restcountries.eu/data/atg.svg",
+    "regionalBlocs": [
+      {
+        "acronym": "CARICOM",
+        "name": "Caribbean Community",
+        "otherAcronyms": [],
+        "otherNames": [
+          "Comunidad del Caribe",
+          "Communauté Caribéenne",
+          "Caribische Gemeenschap"
+        ]
+      }
+    ],
+    "cioc": "ANT"
+  },
+  {
+    "name": "Argentina",
+    "topLevelDomain": [".ar"],
+    "alpha2Code": "AR",
+    "alpha3Code": "ARG",
+    "callingCodes": ["54"],
+    "capital": "Buenos Aires",
+    "altSpellings": ["AR", "Argentine Republic", "República Argentina"],
+    "region": "Americas",
+    "subregion": "South America",
+    "population": 43590400,
+    "latlng": [-34, -64],
+    "demonym": "Argentinean",
+    "area": 2780400,
+    "gini": 44.5,
+    "timezones": ["UTC-03:00"],
+    "borders": ["BOL", "BRA", "CHL", "PRY", "URY"],
+    "nativeName": "Argentina",
+    "numericCode": "032",
+    "currencies": [
+      {
+        "code": "ARS",
+        "name": "Argentine peso",
+        "symbol": "$"
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "es",
+        "iso639_2": "spa",
+        "name": "Spanish",
+        "nativeName": "Español"
+      },
+      {
+        "iso639_1": "gn",
+        "iso639_2": "grn",
+        "name": "Guaraní",
+        "nativeName": "Avañe'ẽ"
+      }
+    ],
+    "translations": {
+      "de": "Argentinien",
+      "es": "Argentina",
+      "fr": "Argentine",
+      "ja": "アルゼンチン",
+      "it": "Argentina",
+      "br": "Argentina",
+      "pt": "Argentina",
+      "nl": "Argentinië",
+      "hr": "Argentina",
+      "fa": "آرژانتین"
+    },
+    "flag": "https://restcountries.eu/data/arg.svg",
+    "regionalBlocs": [
+      {
+        "acronym": "USAN",
+        "name": "Union of South American Nations",
+        "otherAcronyms": ["UNASUR", "UNASUL", "UZAN"],
+        "otherNames": [
+          "Unión de Naciones Suramericanas",
+          "União de Nações Sul-Americanas",
+          "Unie van Zuid-Amerikaanse Naties",
+          "South American Union"
+        ]
+      }
+    ],
+    "cioc": "ARG"
+  },
+  {
+    "name": "Armenia",
+    "topLevelDomain": [".am"],
+    "alpha2Code": "AM",
+    "alpha3Code": "ARM",
+    "callingCodes": ["374"],
+    "capital": "Yerevan",
+    "altSpellings": [
+      "AM",
+      "Hayastan",
+      "Republic of Armenia",
+      "Հայաստանի Հանրապետություն"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia",
+    "population": 2994400,
+    "latlng": [40, 45],
+    "demonym": "Armenian",
+    "area": 29743,
+    "gini": 30.9,
+    "timezones": ["UTC+04:00"],
+    "borders": ["AZE", "GEO", "IRN", "TUR"],
+    "nativeName": "Հայաստան",
+    "numericCode": "051",
+    "currencies": [
+      {
+        "code": "AMD",
+        "name": "Armenian dram",
+        "symbol": null
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "hy",
+        "iso639_2": "hye",
+        "name": "Armenian",
+        "nativeName": "Հայերեն"
+      },
+      {
+        "iso639_1": "ru",
+        "iso639_2": "rus",
+        "name": "Russian",
+        "nativeName": "Русский"
+      }
+    ],
+    "translations": {
+      "de": "Armenien",
+      "es": "Armenia",
+      "fr": "Arménie",
+      "ja": "アルメニア",
+      "it": "Armenia",
+      "br": "Armênia",
+      "pt": "Arménia",
+      "nl": "Armenië",
+      "hr": "Armenija",
+      "fa": "ارمنستان"
+    },
+    "flag": "https://restcountries.eu/data/arm.svg",
+    "regionalBlocs": [
+      {
+        "acronym": "EEU",
+        "name": "Eurasian Economic Union",
+        "otherAcronyms": ["EAEU"],
+        "otherNames": []
+      }
+    ],
+    "cioc": "ARM"
+  },
+  {
+    "name": "Aruba",
+    "topLevelDomain": [".aw"],
+    "alpha2Code": "AW",
+    "alpha3Code": "ABW",
+    "callingCodes": ["297"],
+    "capital": "Oranjestad",
+    "altSpellings": ["AW"],
+    "region": "Americas",
+    "subregion": "Caribbean",
+    "population": 107394,
+    "latlng": [12.5, -69.96666666],
+    "demonym": "Aruban",
+    "area": 180,
+    "gini": null,
+    "timezones": ["UTC-04:00"],
+    "borders": [],
+    "nativeName": "Aruba",
+    "numericCode": "533",
+    "currencies": [
+      {
+        "code": "AWG",
+        "name": "Aruban florin",
+        "symbol": "ƒ"
+      }
+    ],
+    "languages": [
+      {
+        "iso639_1": "nl",
+        "iso639_2": "nld",
+        "name": "Dutch",
+        "nativeName": "Nederlands"
+      },
+      {
+        "iso639_1": "pa",
+        "iso639_2": "pan",
+        "name": "(Eastern) Punjabi",
+        "nativeName": "ਪੰਜਾਬੀ"
+      }
+    ],
+    "translations": {
+      "de": "Aruba",
+      "es": "Aruba",
+      "fr": "Aruba",
+      "ja": "アルバ",
+      "it": "Aruba",
+      "br": "Aruba",
+      "pt": "Aruba",
+      "nl": "Aruba",
+      "hr": "Aruba",
+      "fa": "آروبا"
+    },
+    "flag": "https://restcountries.eu/data/abw.svg",
+    "regionalBlocs": [],
+    "cioc": "ARU"
+  }
+]
