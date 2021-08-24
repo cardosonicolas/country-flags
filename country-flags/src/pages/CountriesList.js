@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
-
-function getCountries() {
-  return fetch("https://restcountries.eu/rest/v2/all").then((response) =>
-    response.json()
-  );
-}
+import { getCountries } from "../api";
+import Country from "../components/Country";
 
 function CountriesList() {
   const [countries, setCountries] = useState([]);
@@ -19,19 +15,29 @@ function CountriesList() {
       });
   }, []);
 
-  //   useEffect(() => {
-  //     async function getData() {
-  //       try {
-  //         const data = await getCountries();
-  //         setCountries(data.default);
-  //       } catch (err) {
-  //         console.log(err);
-  //       }
-  //     }
-  //     getData();
-  //   }, []);
-
-  return countries.map((country) => <p>{country.name}</p>);
+  return countries.map(({ name, capital, region, flag, population }) => (
+    <Country
+      name={name}
+      capital={capital}
+      region={region}
+      flag={flag}
+      population={population}
+    />
+  ));
 }
 
 export default CountriesList;
+
+//   useEffect(() => {
+//     async function getData() {
+//       try {
+//         const data = await getCountries();
+//         setCountries(data.default);
+//       } catch (err) {
+//         console.log(err);
+//       }
+//     }
+//     getData();
+//   }, []);
+
+//   return null;
