@@ -1,7 +1,7 @@
 const API_URL = "https://restcountries.eu/rest/v2/";
 
-export function getCountries(name = "") {
-  const endpoint = name ? `name/${name}` : "all";
+export function getCountries(name = "", region = "") {
+  const endpoint = getEndpoint(name, region);
   const fieldsParams = "?fields=name;capital;region;flag;population";
 
   return fetch(API_URL + endpoint + fieldsParams)
@@ -14,4 +14,14 @@ export function getCountries(name = "") {
       return r;
     })
     .then((r) => r.json());
+}
+
+function getEndpoint(name, region) {
+  if (name) {
+    return `name/${name}`;
+  }
+  if (region) {
+    return `region/${region}`;
+  }
+  return "all";
 }
