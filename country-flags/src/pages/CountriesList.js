@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { Link } from "wouter";
 import Country from "../components/Country";
 import Select from "../components/Select";
 import { getCountries } from "../api";
 import { getErrorText } from "../utils";
+
+const REGIONS = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 function CountriesList() {
   const [countries, setCountries] = useState([]);
@@ -37,21 +40,24 @@ function CountriesList() {
       />
       <Select
         onChange={handleRegionChange}
-        options={["Americas", "Europe", "Africa"]}
+        options={REGIONS}
         placeholder="Filter by Region"
         clear={!filters.region}
       />
       {error
         ? getErrorText(error)
         : countries.map(({ name, capital, region, flag, population }) => (
-            <Country
-              key={name}
-              name={name}
-              capital={capital}
-              region={region}
-              flag={flag}
-              population={population}
-            />
+            <Link href="/detail" key={name}>
+              <a>
+                <Country
+                  name={name}
+                  capital={capital}
+                  region={region}
+                  flag={flag}
+                  population={population}
+                />
+              </a>
+            </Link>
           ))}
     </div>
   );
