@@ -1,7 +1,7 @@
-function Select({ onChange, options, placeholder }) {
+function Select({ onChange, options, placeholder, clear }) {
   return (
     <select name="select" onChange={onChange}>
-      <option disabled selected hidden>
+      <option disabled selected={!!clear} hidden>
         {placeholder}
       </option>
 

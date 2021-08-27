@@ -30,11 +30,16 @@ function CountriesList() {
 
   return (
     <div>
-      <input type="text" onChange={handleNameChange} />
+      <input
+        type="text"
+        onChange={handleNameChange}
+        value={filters.name || ""}
+      />
       <Select
         onChange={handleRegionChange}
         options={["Americas", "Europe", "Africa"]}
         placeholder="Filter by Region"
+        clear={!filters.region}
       />
       {error
         ? getErrorText(error)
