@@ -46,19 +46,21 @@ function CountriesList() {
       />
       {error
         ? getErrorText(error)
-        : countries.map(({ name, capital, region, flag, population }) => (
-            <Link href="/detail" key={name}>
-              <a>
-                <Country
-                  name={name}
-                  capital={capital}
-                  region={region}
-                  flag={flag}
-                  population={population}
-                />
-              </a>
-            </Link>
-          ))}
+        : countries.map(
+            ({ name, capital, region, flag, population, alpha3Code: id }) => (
+              <Link href={`/country/${id}`} key={name}>
+                <a>
+                  <Country
+                    name={name}
+                    capital={capital}
+                    region={region}
+                    flag={flag}
+                    population={population}
+                  />
+                </a>
+              </Link>
+            )
+          )}
     </div>
   );
 }

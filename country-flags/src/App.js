@@ -9,8 +9,8 @@ function App() {
       <Route path="/">
         <CountriesList />
       </Route>
-      <Route path="/detail">
-        <CountryDetail />
+      <Route path="/country/:id">
+        {(params) => <CountryDetail id={params.id} />}
       </Route>
     </>
   );
