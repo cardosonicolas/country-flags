@@ -15,6 +15,7 @@ function Country({ name, capital, region, flag, population }) {
 const Div = styled.div`
   width: 300px;
   border-radius: 10px;
+  background-color: hsl(0, 0%, 100%);
 `;
 const Img = styled.img`
   max-width: 100%;

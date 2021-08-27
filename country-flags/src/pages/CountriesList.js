@@ -6,22 +6,19 @@ import { getErrorText } from "../utils";
 
 function CountriesList() {
   const [countries, setCountries] = useState([]);
-  const [region, setRegion] = useState("");
-  const [name, setName] = useState("");
+  const [filters, setFilters] = useState({});
   const [error, setError] = useState(null);
 
   const handleNameChange = (e) => {
-    setRegion("");
-    setName(e.target.value);
+    setFilters({ name: e.target.value });
   };
 
   const handleRegionChange = (e) => {
-    setName("");
-    setRegion(e.target.value);
+    setFilters({ region: e.target.value });
   };
 
   useEffect(() => {
-    getCountries(name, region)
+    getCountries(filters)
       .then((data) => {
         setCountries(data);
         setError();
@@ -29,9 +26,8 @@ function CountriesList() {
       .catch((err) => {
         setError(err);
       });
-  }, [name, region]);
+  }, [filters]);
 
-  console.log(region);
   return (
     <div>
       <input type="text" onChange={handleNameChange} />

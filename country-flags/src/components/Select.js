@@ -1,11 +1,11 @@
-function Select(props) {
+function Select({ onChange, options, placeholder }) {
   return (
-    <select name="select" onChange={props.onChange}>
+    <select name="select" onChange={onChange}>
       <option disabled selected hidden>
-        {props.placeholder}
+        {placeholder}
       </option>
 
-      {props.options.map((el) => (
+      {options.map((el) => (
         <option key={el} value={el}>
           {el}
         </option>
