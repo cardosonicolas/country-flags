@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import Country from "../components/Country";
 import Select from "../components/Select";
+import Layout from "../components/Layout";
 import { getCountries } from "../api";
 import { getErrorText } from "../utils";
 
@@ -32,7 +33,7 @@ function CountriesList() {
   }, [filters]);
 
   return (
-    <div>
+    <Layout>
       <input
         type="text"
         onChange={handleNameChange}
@@ -61,7 +62,7 @@ function CountriesList() {
               </Link>
             )
           )}
-    </div>
+    </Layout>
   );
 }
 
