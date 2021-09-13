@@ -2,41 +2,68 @@ import styled from "styled-components";
 
 function Country({ name, capital, region, flag, population }) {
   return (
-    <div>
-      <Img src={flag} alt={`${name} flag`} />
-      <div>
-        <h2>{name}</h2>
-        <p>
-          <strong>Population:</strong> {population}
-        </p>
-        <p>
-          <strong>Region: </strong>
-          {region}
-        </p>
-        <p>
-          <strong>Capital:</strong> {capital}
-        </p>
-      </div>
-    </div>
+    <Card>
+      <Flag src={flag} alt={`${name} flag`} />
+      <Description>
+        <Name>{name}</Name>
+        <Properties>
+          <Property>
+            <PropertyName>Population: </PropertyName>
+            {population.toLocaleString()}
+          </Property>
+          <Property>
+            <PropertyName>Region: </PropertyName>
+            {region}
+          </Property>
+          <Property>
+            <PropertyName>Capital: </PropertyName>
+            {capital}
+          </Property>
+        </Properties>
+      </Description>
+    </Card>
   );
 }
 
-const Div = styled.div`
-  width: 300px;
+const Card = styled.div`
   border-radius: 10px;
   background-color: hsl(0, 0%, 100%);
   color: hsl(200, 15%, 8%);
-  margin-bottom: 2em;
+
+  box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 33%);
+  -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 33%);
+  -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 33%);
 `;
 
-const Img = styled.img`
-  max-width: 100%;
-  height: auto;
+const Flag = styled.img`
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
   border-radius: 10px 10px 0 0;
 `;
 
-const P = styled.p`
-  line-height: 1;
+const Description = styled.div`
+  margin-top: 0;
+  padding: 1.5em 1.5em 2em 1.5em;
+`;
+
+const Name = styled.div`
+  font-size: 1.3em;
+  font-weight: 800;
+`;
+
+const Properties = styled.div`
+  & > * {
+    margin-top: 0.5em;
+  }
+`;
+
+const Property = styled.div`
+  font-weight: 300;
+`;
+
+const PropertyName = styled.span`
+  font-weight: 600;
 `;
 
 export default Country;
