@@ -1,15 +1,17 @@
 import styled from "styled-components";
+import { devices } from "../utils";
 
-function Country({ name, capital, region, flag, population }) {
+const Country = ({ name, capital, region, flags, population }) => {
+  let defaulFlag = ""; //TODO: Import svg flag
   return (
     <Card>
-      <Flag src={flag} alt={`${name} flag`} />
+      <Flag src={flags?.svg || defaulFlag} alt={`${name} flag`} />
       <Description>
         <Name>{name}</Name>
         <Properties>
           <Property>
             <PropertyName>Population: </PropertyName>
-            {population.toLocaleString()}
+            {population && population.toLocaleString()}
           </Property>
           <Property>
             <PropertyName>Region: </PropertyName>
@@ -23,16 +25,18 @@ function Country({ name, capital, region, flag, population }) {
       </Description>
     </Card>
   );
-}
+};
 
 const Card = styled.div`
-  border-radius: 10px;
+  width: auto;
+  padding-bottom: 1em;
+  border-radius: 5px;
   background-color: hsl(0, 0%, 100%);
   color: hsl(200, 15%, 8%);
 
-  box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 33%);
-  -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 33%);
-  -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 33%);
+  box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 15%);
+  -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 15%);
+  -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 15%);
 `;
 
 const Flag = styled.img`
@@ -48,8 +52,12 @@ const Description = styled.div`
 `;
 
 const Name = styled.div`
-  font-size: 1.3em;
+  font-size: 2em;
   font-weight: 800;
+
+  @media ${devices.tablet} {
+    font-size: 1em;
+  }
 `;
 
 const Properties = styled.div`

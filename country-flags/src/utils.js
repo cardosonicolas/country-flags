@@ -1,3 +1,9 @@
+export const devices = {
+  tablet: "(min-width: 768px)",
+  laptop: "(min-width: 1024px)",
+  wide: "(min-width: 1600px)",
+};
+
 export const getErrorText = (err) => {
   const STATUS_CODE_ERROR_MAP = {
     404: "No se encontraron paises",

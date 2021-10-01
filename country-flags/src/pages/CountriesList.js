@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link } from "wouter";
 import styled from "styled-components";
-import Country from "../components/Country";
-import Select from "../components/Select";
-import Layout from "../components/Layout";
+import { Link } from "wouter";
 import { getCountries } from "../api";
 import { getErrorText } from "../utils";
+import Country from "../components/Country";
+import Layout from "../components/Layout";
+import Select from "../components/Select";
+import img from "../static/images/icon-search.svg";
+import { devices } from "../utils";
 
 const REGIONS = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
-function CountriesList() {
+const CountriesList = () => {
   const [countries, setCountries] = useState([]);
   const [filters, setFilters] = useState({});
   const [error, setError] = useState(null);
@@ -35,60 +37,139 @@ function CountriesList() {
 
   return (
     <Layout>
-      <Filters>
-        <input
-          type="text"
-          onChange={handleNameChange}
-          value={filters.name || ""}
-        />
-        <Select
-          onChange={handleRegionChange}
-          options={REGIONS}
-          placeholder="Filter by Region"
-          clear={!filters.region}
-        />
-      </Filters>
-      {error ? (
-        getErrorText(error)
-      ) : (
-        <Countries>
-          {countries.map(
-            ({ name, capital, region, flag, population, alpha3Code: id }) => (
-              <Link href={`/country/${id}`} key={name}>
-                <CountryItem>
+      <Wrapper>
+        <Filters>
+          <SearchBar>
+            <SearchIcon />
+            <Search
+              type="text"
+              onChange={handleNameChange}
+              placeholder="Search for a country..."
+              value={filters.name || ""}
+            />
+          </SearchBar>
+          <Select
+            onChange={handleRegionChange}
+            options={REGIONS}
+            placeholder="Filter by Region"
+            clear={!filters.region}
+          />
+        </Filters>
+        {error ? (
+          getErrorText(error)
+        ) : (
+          <Countries>
+            {countries.map(
+              ({
+                name,
+                capital,
+                region,
+                flags,
+                population,
+                alpha3Code: id,
+              }) => (
+                <Link href={`/country/${id}`} key={name}>
                   <a>
                     <Country
                       name={name}
                       capital={capital}
                       region={region}
-                      flag={flag}
+                      flags={flags}
                       population={population}
                     />
                   </a>
-                </CountryItem>
-              </Link>
-            )
-          )}
-        </Countries>
-      )}
+                </Link>
+              )
+            )}
+          </Countries>
+        )}
+      </Wrapper>
     </Layout>
   );
-}
+};
 
 export default CountriesList;
 
 const Filters = styled.div`
-  padding: 0 0.5em;
   & > * {
     display: block;
+  }
+
+  @media ${devices.laptop} {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+`;
+
+const Wrapper = styled.div`
+  display: block;
+  width: 90%;
+  max-width: 1000px;
+  margin: 1em auto;
+
+  @media ${devices.laptop} {
+    max-width: 1300px;
   }
 `;
 
 const Countries = styled.div`
-  padding: 0 1.5em;
+  @media ${devices.tablet} {
+    & > * {
+      margin: 0;
+    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+  }
+
+  @media ${devices.laptop} {
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
-const CountryItem = styled.div``;
+const SearchBar = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media ${devices.laptop} {
+    width: 40%;
+  }
+`;
+
+const SearchIcon = styled.div`
+  position: absolute;
+  margin: 0 1em;
+  width: 1em;
+  height: 1em;
+  backgound-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(${img});
+`;
+
+const Search = styled.input`
+  height: 3.5em;
+  width: 100%;
+  margin-top: 0;
+  padding: 0 3em;
+  border: none;
+  border-radius: 3px;
+  outline: 0;
+
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
+  -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
+  -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
+
+  &::placeholder {
+    color: hsl(0, 0%, 52%);
+  }
+
+  @media ${devices.laptop} {
+  }
+`;
 
 //   useEffect(() => {
 //     async function getData() {

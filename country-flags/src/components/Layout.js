@@ -9,7 +9,9 @@ function Layout({ children }) {
   );
 }
 
-const Content = styled.div``;
+const Content = styled.div`
+  margin-bottom: 3em;
+`;
 
 const GlobalStyle = createGlobalStyle`
 
@@ -44,18 +46,17 @@ body {
 }
 
 a {
-      text-decoration: none;
-}
-a:visited {
-      text-decoration: none;
-}
-a:hover {
-      text-decoration: underline;
-}
-a:active {
-      text-decoration: underline;
-}
 
+      text-decoration: none;
+
+      &:visited {
+      text-decoration: none;
+      }
+
+      &:hover, &:active  {
+            text-decoration: underline;
+      }
+}
 
 `;
 
