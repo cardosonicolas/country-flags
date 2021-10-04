@@ -6,7 +6,6 @@ import { getErrorText } from "../utils";
 import Country from "../components/Country";
 import Layout from "../components/Layout";
 import Select from "../components/Select";
-import img from "../static/images/icon-search.svg";
 import SearchIcon from "../components/SearchIcon";
 import { devices } from "../utils";
 
@@ -71,17 +70,19 @@ const CountriesList = () => {
                 population,
                 alpha3Code: id,
               }) => (
-                <Link href={`/country/${id}`} key={name}>
-                  <a>
-                    <Country
-                      name={name}
-                      capital={capital}
-                      region={region}
-                      flags={flags}
-                      population={population}
-                    />
-                  </a>
-                </Link>
+                <div key={id}>
+                  <Link href={`/country/${id}`} key={name}>
+                    <a>
+                      <Country
+                        name={name}
+                        capital={capital}
+                        region={region}
+                        flags={flags}
+                        population={population}
+                      />
+                    </a>
+                  </Link>
+                </div>
               )
             )}
           </Countries>

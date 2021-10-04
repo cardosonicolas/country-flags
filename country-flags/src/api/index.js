@@ -32,7 +32,7 @@ function getEndpoint({ name, region }) {
     return `name/${name}`;
   }
   if (region) {
-    return `region/${region}`;
+    return `continent/${region}`;
   }
   return "all";
 }

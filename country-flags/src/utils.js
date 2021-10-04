@@ -13,17 +13,15 @@ export const getErrorText = (err) => {
 };
 
 export function fetch(url) {
-  return window
-    .fetch(url)
-    .then(checkResponse)
-    .then((r) => r.json());
+  return window.fetch(url).then(checkResponse);
 }
 
-function checkResponse(r) {
-  if (r.status >= 400) {
+async function checkResponse(r) {
+  const data = await r.json();
+  if (r.status >= 400 || data.status >= 400) {
     const error = new Error();
-    error.error = { status: r.status };
+    error.error = { status: data.status || r.status };
     throw error;
   }
-  return r;
+  return data;
 }
