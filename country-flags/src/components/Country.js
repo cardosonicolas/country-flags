@@ -31,8 +31,7 @@ const Card = styled.div`
   width: auto;
   padding-bottom: 1em;
   border-radius: 5px;
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(200, 15%, 8%);
+  background-color: ${(props) => props.theme.elements};
 
   box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 15%);
   -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 15%);

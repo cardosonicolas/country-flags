@@ -28,18 +28,17 @@ const Wrapper = styled.div`
 `;
 
 const Nav = styled.div`
+  padding: 0 1em;
+  height: 5em;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding: 0 1em;
-  background-color: hsl(0, 0%, 100%);
-  height: 5em;
+  background-color: ${(props) => props.theme.elements};
 `;
 
 const Title = styled.a`
   font-size: 1em;
   font-weight: 800;
-  color: hsl(0, 0%, 0%);
   text-decoration: none;
 
   &:visited {

@@ -7,6 +7,7 @@ import Country from "../components/Country";
 import Layout from "../components/Layout";
 import Select from "../components/Select";
 import img from "../static/images/icon-search.svg";
+import SearchIcon from "../components/SearchIcon";
 import { devices } from "../utils";
 
 const REGIONS = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
@@ -40,7 +41,9 @@ const CountriesList = () => {
       <Wrapper>
         <Filters>
           <SearchBar>
-            <SearchIcon />
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
             <Search
               type="text"
               onChange={handleNameChange}
@@ -139,14 +142,13 @@ const SearchBar = styled.div`
   }
 `;
 
-const SearchIcon = styled.div`
+const SearchIconWrapper = styled.div`
   position: absolute;
   margin: 0 1em;
   width: 1em;
   height: 1em;
   backgound-repeat: no-repeat;
   background-size: contain;
-  background-image: url(${img});
 `;
 
 const Search = styled.input`
@@ -158,7 +160,7 @@ const Search = styled.input`
   border-radius: 3px;
   outline: 0;
 
-  background-color: hsl(0, 0%, 100%);
+  background-color: ${(props) => props.theme.elements};
   box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
   -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
   -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
