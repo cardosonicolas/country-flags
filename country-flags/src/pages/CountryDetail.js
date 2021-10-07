@@ -53,30 +53,32 @@ const CountryDetail = ({ id }) => {
           <Description>
             <Name>{name}</Name>
             <Properties>
-              <Property name="Nativo Name" value={nativeName} />
-              <Property
-                name="Population"
-                value={population && population.toLocaleString()}
-              />
-              <Property name="Region" value={region} />
-              <Property name="Sub Region" value={subregion} />
-              <Property name="Capital" value={capital} />
-              <Property name="Region" value={region} />
-
-              <br />
-              <Property name="Top Level Domain" value={topLevelDomain} />
-              <Property
-                name="Currencies"
-                value={
-                  currencies && currencies.map(({ name }) => name).join(", ")
-                }
-              />
-              <Property
-                name="Languages"
-                value={
-                  languages && languages.map(({ name }) => name).join(", ")
-                }
-              />
+              <div>
+                <Property name="Nativo Name" value={nativeName} />
+                <Property
+                  name="Population"
+                  value={population && population.toLocaleString()}
+                />
+                <Property name="Region" value={region} />
+                <Property name="Sub Region" value={subregion} />
+                <Property name="Capital" value={capital} />
+                <Property name="Region" value={region} />
+              </div>
+              <div>
+                <Property name="Top Level Domain" value={topLevelDomain} />
+                <Property
+                  name="Currencies"
+                  value={
+                    currencies && currencies.map(({ name }) => name).join(", ")
+                  }
+                />
+                <Property
+                  name="Languages"
+                  value={
+                    languages && languages.map(({ name }) => name).join(", ")
+                  }
+                />
+              </div>
             </Properties>
             {!!country.borders?.length && (
               <>
@@ -123,17 +125,29 @@ const Arrow = styled.div`
 
 const Container = styled.div`
   padding: 0 1em;
+  margin: 0 auto;
+  @media ${devices.laptop} {
+    max-width: 1300px;
+  }
 `;
 
 const Card = styled.div`
   @media ${devices.laptop} {
     display: flex;
+    margin: 0 auto;
+    width: 90%;
+    justify-content: space-between;
   }
 `;
 
 const Flag = styled.img`
   width: 100%;
   height: auto;
+
+  @media ${devices.laptop} {
+    width: 45%;
+    object-fit: contain;
+  }
 `;
 
 const Name = styled.div`
@@ -147,10 +161,16 @@ const Properties = styled.div`
   & > * {
     margin-top: 1em;
   }
+
+  @media ${devices.laptop} {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const Wrapper = styled.div`
   font-weight: 300;
+  margin-top: 1em;
 `;
 
 const PropertyName = styled.span`
@@ -180,4 +200,9 @@ const Border = styled.div`
   box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
   -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
   -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
+
+  @media ${devices.laptop} {
+    padding: 0.5em 1em;
+    font-size: 12px;
+  }
 `;

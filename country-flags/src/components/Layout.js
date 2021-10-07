@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "./Navbar";
 
@@ -13,11 +14,38 @@ const lightTheme = {
   text: "hsl(200, 15%, 8%)",
 };
 
+function useDarkTheme() {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      window.localStorage.setItem("dark", "dark");
+    } else {
+      setTheme("light");
+      window.localStorage.setItem("dark", "light");
+    }
+  };
+
+  useEffect(() => {
+    const theme = window.localStorage.getItem("dark");
+    if (theme !== null) {
+      setTheme(theme);
+    } else {
+      window.localStorage.setItem("dark", "light");
+    }
+  }, []);
+
+  return [theme, toggleTheme];
+}
+
 function Layout({ children }) {
+  const [theme, toggleTheme] = useDarkTheme();
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={theme !== "light" ? darkTheme : lightTheme}>
       <GlobalStyle />
-      <Navbar />
+      <Navbar onChangeTheme={toggleTheme} theme={theme} />
       <Content>{children}</Content>
     </ThemeProvider>
   );
@@ -54,7 +82,7 @@ body {
       background-color: ${(props) => props.theme.background};
       font-family: "Nunito Sans", sans-serif;
       color: ${(props) => props.theme.text};
-      
+      // transition: background-color 0.5s;
 }
 
 #root {
