@@ -37,14 +37,14 @@ const CountryDetail = ({ id }) => {
     languages,
   } = country;
 
-  const handleClick = () => {
+  const handleClickBack = () => {
     window.history.back();
   };
 
   return (
     <Layout>
       <Container>
-        <Back onClick={handleClick}>
+        <Back onClick={handleClickBack}>
           <Arrow></Arrow>
           Back
         </Back>
@@ -62,7 +62,6 @@ const CountryDetail = ({ id }) => {
                 <Property name="Region" value={region} />
                 <Property name="Sub Region" value={subregion} />
                 <Property name="Capital" value={capital} />
-                <Property name="Region" value={region} />
               </div>
               <div>
                 <Property name="Top Level Domain" value={topLevelDomain} />
@@ -82,8 +81,8 @@ const CountryDetail = ({ id }) => {
             </Properties>
             {!!country.borders?.length && (
               <>
-                <h2>Border Countries</h2>
                 <Borders>
+                  <Title>Border Countries: </Title>
                   {country.borders.map(({ name, alpha3Code: id }) => (
                     <Link href={`/country/${id}`} key={name}>
                       <a href="/">
@@ -124,8 +123,11 @@ const Arrow = styled.div`
 `;
 
 const Container = styled.div`
-  padding: 0 1em;
-  margin: 0 auto;
+  display: block;
+  width: 90%;
+  max-width: 1000px;
+  margin: 1em auto;
+
   @media ${devices.laptop} {
     max-width: 1300px;
   }
@@ -133,10 +135,11 @@ const Container = styled.div`
 
 const Card = styled.div`
   @media ${devices.laptop} {
-    display: flex;
-    margin: 0 auto;
-    width: 90%;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5em;
+    align-items: start;
+    justify-content: center;
   }
 `;
 
@@ -145,8 +148,7 @@ const Flag = styled.img`
   height: auto;
 
   @media ${devices.laptop} {
-    width: 45%;
-    object-fit: contain;
+    object-fit: cover;
   }
 `;
 
@@ -159,16 +161,18 @@ const Description = styled.div``;
 
 const Properties = styled.div`
   & > * {
-    margin-top: 1em;
+    margin-top: 2em;
   }
 
   @media ${devices.laptop} {
     display: flex;
-    justify-content: space-between;
+    gap: 2em;
+    margin-top: 0;
   }
 `;
 
 const Wrapper = styled.div`
+  font-size: 0.8em;
   font-weight: 300;
   margin-top: 1em;
 `;
@@ -177,10 +181,22 @@ const PropertyName = styled.span`
   font-weight: 600;
 `;
 
+const Title = styled.h2`
+  font-size: 1em;
+  width: 100%;
+
+  @media ${devices.laptop} {
+    width: 0;
+    font-size: 0.8em;
+  }
+`;
+
 const Borders = styled.div`
   display: flex;
   flex-wrap: wrap;
+  margin-top: 3em;
   justify-content: center;
+
   & > * {
     margin-top: 0;
     margin-bottom: 1em;
@@ -188,18 +204,29 @@ const Borders = styled.div`
   }
 
   & > * + * {
-    margin-left: 1em;
+    margin-left: 0.5em;
+  }
+
+  @media ${devices.laptop} {
+    justify-content: start;
+    align-items: baseline;
+
+    & > * {
+      min-width: 20%;
+    }
+
+    & > * + * {
+      margin-left: 0.5em;
+    }
   }
 `;
 
 const Border = styled.div`
-  padding: 1em;
+  padding: 0.5em;
   text-align: center;
-  background-color: ${(props) => props.theme.elements};
+  background-color: ${({ theme }) => theme.elements};
 
-  box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
-  -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
-  -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
+  box-shadow: ${({ theme }) => theme.box_shadow};
 
   @media ${devices.laptop} {
     padding: 0.5em 1em;

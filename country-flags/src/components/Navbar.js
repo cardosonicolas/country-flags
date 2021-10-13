@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "wouter";
 
 import { devices } from "../utils";
+import ThemeIcon from "./ThemeIcon";
 
 const Navbar = ({ onChangeTheme, theme }) => {
   return (
@@ -15,7 +16,10 @@ const Navbar = ({ onChangeTheme, theme }) => {
             onChangeTheme();
           }}
         >
-          {theme !== "light" ? "Light" : "Dark"} Mode
+          <ThemeIconWrapper>
+            <ThemeIcon />
+          </ThemeIconWrapper>
+          <ThemeText>{theme !== "light" ? "Light" : "Dark"} Mode</ThemeText>
         </ThemeMode>
       </Nav>
     </Wrapper>
@@ -28,7 +32,8 @@ const Wrapper = styled.div`
   width: 100%;
   margin: 0 auto;
   display: block;
-  background-color: ${(props) => props.theme.elements};
+  background-color: ${({ theme }) => theme.elements};
+  box-shadow: ${({ theme }) => theme.box_shadow};
 `;
 
 const Nav = styled.div`
@@ -66,4 +71,19 @@ const Title = styled.a`
 const ThemeMode = styled.div`
   margin-top: 0;
   cursor: pointer;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const ThemeIconWrapper = styled.div`
+  position: absolute;
+  width: 1em;
+  margin: -1.5em;
+`;
+
+const ThemeText = styled.p`
+  margin: 0;
 `;

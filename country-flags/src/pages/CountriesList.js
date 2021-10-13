@@ -161,29 +161,10 @@ const Search = styled.input`
   border-radius: 3px;
   outline: 0;
 
-  background-color: ${(props) => props.theme.elements};
-  box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
-  -webkit-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
-  -moz-box-shadow: 0px 0px 10px 0px rgb(59 59 59 / 8%);
+  background-color: ${({ theme }) => theme.elements};
+  box-shadow: ${({ theme }) => theme.box_shadow};
 
   &::placeholder {
     color: hsl(0, 0%, 52%);
   }
-
-  @media ${devices.laptop} {
-  }
 `;
-
-//   useEffect(() => {
-//     async function getData() {
-//       try {
-//         const data = await getCountries();
-//         setCountries(data.default);
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     }
-//     getData();
-//   }, []);
-
-//   return null;

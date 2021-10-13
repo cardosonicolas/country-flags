@@ -6,12 +6,14 @@ const darkTheme = {
   background: "hsl(207, 26%, 17%)",
   elements: "hsl(209, 23%, 22%)",
   text: "hsl(0, 0%, 100%)",
+  box_shadow: "0px 0px 8px 0px rgb(0 0 0 / 50%) ",
 };
 
 const lightTheme = {
   background: "hsl(0, 0%, 98%)",
   elements: "hsl(0, 0%, 100%)",
   text: "hsl(200, 15%, 8%)",
+  box_shadow: "0px 0px 10px 0px rgb(59 59 59 / 8%)",
 };
 
 function useDarkTheme() {
@@ -79,9 +81,9 @@ const GlobalStyle = createGlobalStyle`
 body {
       margin: 0;
       padding: 0;
-      background-color: ${(props) => props.theme.background};
+      background-color: ${({ theme }) => theme.background};
       font-family: "Nunito Sans", sans-serif;
-      color: ${(props) => props.theme.text};
+      color: ${({ theme }) => theme.text};
       // transition: background-color 0.5s;
 }
 

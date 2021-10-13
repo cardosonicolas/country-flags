@@ -24,7 +24,7 @@ const FilterRegion = styled.select`
   padding: 1.3em;
   border: none;
   border-radius: 3px;
-  background-color: ${(props) => props.theme.elements};
+  background-color: ${({ theme }) => theme.elements};
   outline: 0;
 
   @media ${devices.laptop} {

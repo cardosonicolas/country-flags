@@ -15,7 +15,7 @@ const SearchIcon = () => {
 
 const SvgWrapper = styled.svg`
   fill: none;
-  stroke: ${(props) => props.theme.text};
+  stroke: ${({ theme }) => theme.text};
 `;
 
 export default SearchIcon;
