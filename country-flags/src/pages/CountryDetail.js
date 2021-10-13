@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "wouter";
-import Layout from "../components/Layout";
+
 import { getCountry } from "../api";
-import arrow from "../static/images/icon-left-arrow.svg";
 import { devices } from "../utils";
+
+import Layout from "../components/Layout";
+import ArrowIcon from "../components/ArrowIcon";
 
 const Property = ({ name, value }) => {
   return (
@@ -44,10 +46,13 @@ const CountryDetail = ({ id }) => {
   return (
     <Layout>
       <Container>
-        <Back onClick={handleClickBack}>
-          <Arrow></Arrow>
-          Back
-        </Back>
+        <Buttom onClick={handleClickBack}>
+          <ArrrowIconWrapper>
+            <ArrowIcon />
+          </ArrrowIconWrapper>
+          <ButtomText>Back</ButtomText>
+        </Buttom>
+
         <Card>
           <Flag src={flags && flags.svg} alt={`Flag from ${name}`} />
           <Description>
@@ -102,24 +107,26 @@ const CountryDetail = ({ id }) => {
 
 export default CountryDetail;
 
-const Back = styled.button`
-  display: flex;
-  justify-content: center;
-  padding: 0.5em 1em;
+const ArrrowIconWrapper = styled.div`
+  width: 1.5em;
+  margin: 0 auto;
 `;
 
-const Arrow = styled.div`
-  background-color: transparent;
+const ButtomText = styled.span`
+  align-self: center;
+`;
 
-  /* Size */
-  height: 0.5em;
-  width: 0.5em;
-
-  background-image: url(${arrow});
-
-  //   border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-  //   border-left: 1px solid rgba(0, 0, 0, 0.3);
-  //   transform: translateX(25%) rotate(45deg);
+const Buttom = styled.div`
+  display: flex;
+  width: 8em;
+  padding: 0.5em 2em;
+  border-radius: 5px;
+  box-shadow: ${({ theme }) => theme.box_shadow};
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
+  & > * {
+    margin-top: 0;
+  }
 `;
 
 const Container = styled.div`
