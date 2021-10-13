@@ -5,7 +5,6 @@ import { Link } from "wouter";
 import { getCountry } from "../api";
 import { devices } from "../utils";
 
-import Layout from "../components/Layout";
 import ArrowIcon from "../components/ArrowIcon";
 
 const Property = ({ name, value }) => {
@@ -44,64 +43,62 @@ const CountryDetail = ({ id }) => {
   };
 
   return (
-    <Layout>
-      <Container>
-        <Buttom onClick={handleClickBack}>
-          <ArrrowIconWrapper>
-            <ArrowIcon />
-          </ArrrowIconWrapper>
-          <ButtomText>Back</ButtomText>
-        </Buttom>
+    <Container>
+      <Buttom onClick={handleClickBack}>
+        <ArrrowIconWrapper>
+          <ArrowIcon />
+        </ArrrowIconWrapper>
+        <ButtomText>Back</ButtomText>
+      </Buttom>
 
-        <Card>
-          <Flag src={flags && flags.svg} alt={`Flag from ${name}`} />
-          <Description>
-            <Name>{name}</Name>
-            <Properties>
-              <div>
-                <Property name="Nativo Name" value={nativeName} />
-                <Property
-                  name="Population"
-                  value={population && population.toLocaleString()}
-                />
-                <Property name="Region" value={region} />
-                <Property name="Sub Region" value={subregion} />
-                <Property name="Capital" value={capital} />
-              </div>
-              <div>
-                <Property name="Top Level Domain" value={topLevelDomain} />
-                <Property
-                  name="Currencies"
-                  value={
-                    currencies && currencies.map(({ name }) => name).join(", ")
-                  }
-                />
-                <Property
-                  name="Languages"
-                  value={
-                    languages && languages.map(({ name }) => name).join(", ")
-                  }
-                />
-              </div>
-            </Properties>
-            {!!country.borders?.length && (
-              <>
-                <Borders>
-                  <Title>Border Countries: </Title>
-                  {country.borders.map(({ name, alpha3Code: id }) => (
-                    <Link href={`/country/${id}`} key={name}>
-                      <a href="/">
-                        <Border>{name}</Border>
-                      </a>
-                    </Link>
-                  ))}
-                </Borders>
-              </>
-            )}
-          </Description>
-        </Card>
-      </Container>
-    </Layout>
+      <Card>
+        <Flag src={flags && flags.svg} alt={`Flag from ${name}`} />
+        <Description>
+          <Name>{name}</Name>
+          <Properties>
+            <div>
+              <Property name="Nativo Name" value={nativeName} />
+              <Property
+                name="Population"
+                value={population && population.toLocaleString()}
+              />
+              <Property name="Region" value={region} />
+              <Property name="Sub Region" value={subregion} />
+              <Property name="Capital" value={capital} />
+            </div>
+            <div>
+              <Property name="Top Level Domain" value={topLevelDomain} />
+              <Property
+                name="Currencies"
+                value={
+                  currencies && currencies.map(({ name }) => name).join(", ")
+                }
+              />
+              <Property
+                name="Languages"
+                value={
+                  languages && languages.map(({ name }) => name).join(", ")
+                }
+              />
+            </div>
+          </Properties>
+          {!!country.borders?.length && (
+            <>
+              <Borders>
+                <Title>Border Countries: </Title>
+                {country.borders.map(({ name, alpha3Code: id }) => (
+                  <Link href={`/country/${id}`} key={name}>
+                    <a href="/">
+                      <Border>{name}</Border>
+                    </a>
+                  </Link>
+                ))}
+              </Borders>
+            </>
+          )}
+        </Description>
+      </Card>
+    </Container>
   );
 };
 

@@ -4,7 +4,6 @@ import { Link } from "wouter";
 import { getCountries } from "../api";
 import { getErrorText } from "../utils";
 import Country from "../components/Country";
-import Layout from "../components/Layout";
 import Select from "../components/Select";
 import SearchIcon from "../components/SearchIcon";
 import { devices } from "../utils";
@@ -36,59 +35,50 @@ const CountriesList = () => {
   }, [filters]);
 
   return (
-    <Layout>
-      <Wrapper>
-        <Filters>
-          <SearchBar>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <Search
-              type="text"
-              onChange={handleNameChange}
-              placeholder="Search for a country..."
-              value={filters.name || ""}
-            />
-          </SearchBar>
-          <Select
-            onChange={handleRegionChange}
-            options={REGIONS}
-            placeholder="Filter by Region"
-            clear={!filters.region}
+    <Wrapper>
+      <Filters>
+        <SearchBar>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <Search
+            type="text"
+            onChange={handleNameChange}
+            placeholder="Search for a country..."
+            value={filters.name || ""}
           />
-        </Filters>
-        {error ? (
-          getErrorText(error)
-        ) : (
-          <Countries>
-            {countries.map(
-              ({
-                name,
-                capital,
-                region,
-                flags,
-                population,
-                alpha3Code: id,
-              }) => (
-                <div key={id}>
-                  <Link href={`/country/${id}`} key={name}>
-                    <a>
-                      <Country
-                        name={name}
-                        capital={capital}
-                        region={region}
-                        flags={flags}
-                        population={population}
-                      />
-                    </a>
-                  </Link>
-                </div>
-              )
-            )}
-          </Countries>
-        )}
-      </Wrapper>
-    </Layout>
+        </SearchBar>
+        <Select
+          onChange={handleRegionChange}
+          options={REGIONS}
+          placeholder="Filter by Region"
+          clear={!filters.region}
+        />
+      </Filters>
+      {error ? (
+        getErrorText(error)
+      ) : (
+        <Countries>
+          {countries.map(
+            ({ name, capital, region, flags, population, alpha3Code: id }) => (
+              <div key={id}>
+                <Link href={`/country/${id}`} key={name}>
+                  <a>
+                    <Country
+                      name={name}
+                      capital={capital}
+                      region={region}
+                      flags={flags}
+                      population={population}
+                    />
+                  </a>
+                </Link>
+              </div>
+            )
+          )}
+        </Countries>
+      )}
+    </Wrapper>
   );
 };
 

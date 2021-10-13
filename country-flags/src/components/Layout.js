@@ -2,39 +2,44 @@ import { useEffect, useState } from "react";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "./Navbar";
 
-const darkTheme = {
-  background: "hsl(207, 26%, 17%)",
-  elements: "hsl(209, 23%, 22%)",
-  text: "hsl(0, 0%, 100%)",
-  box_shadow: "0px 0px 8px 0px rgb(0 0 0 / 50%) ",
-};
+const LIGHT = "light",
+  DARK = "dark";
 
-const lightTheme = {
-  background: "hsl(0, 0%, 98%)",
-  elements: "hsl(0, 0%, 100%)",
-  text: "hsl(200, 15%, 8%)",
-  box_shadow: "0px 0px 10px 0px rgb(59 59 59 / 8%)",
+const themes = {
+  [DARK]: {
+    background: "hsl(207, 26%, 17%)",
+    elements: "hsl(209, 23%, 22%)",
+    text: "hsl(0, 0%, 100%)",
+    box_shadow: "0px 0px 8px 0px rgb(0 0 0 / 50%) ",
+  },
+
+  [LIGHT]: {
+    background: "hsl(0, 0%, 98%)",
+    elements: "hsl(0, 0%, 100%)",
+    text: "hsl(200, 15%, 8%)",
+    box_shadow: "0px 0px 10px 0px rgb(59 59 59 / 8%)",
+  },
 };
 
 function useDarkTheme() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(LIGHT);
 
   const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-      window.localStorage.setItem("dark", "dark");
+    if (theme === LIGHT) {
+      setTheme(DARK);
+      window.localStorage.setItem(DARK, DARK);
     } else {
-      setTheme("light");
-      window.localStorage.setItem("dark", "light");
+      setTheme(LIGHT);
+      window.localStorage.setItem(DARK, LIGHT);
     }
   };
 
   useEffect(() => {
-    const theme = window.localStorage.getItem("dark");
+    const theme = window.localStorage.getItem(DARK);
     if (theme !== null) {
       setTheme(theme);
     } else {
-      window.localStorage.setItem("dark", "light");
+      window.localStorage.setItem(DARK, LIGHT);
     }
   }, []);
 
@@ -45,7 +50,7 @@ function Layout({ children }) {
   const [theme, toggleTheme] = useDarkTheme();
 
   return (
-    <ThemeProvider theme={theme !== "light" ? darkTheme : lightTheme}>
+    <ThemeProvider theme={themes[theme]}>
       <GlobalStyle />
       <Navbar onChangeTheme={toggleTheme} theme={theme} />
       <Content>{children}</Content>
