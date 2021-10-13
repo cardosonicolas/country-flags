@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import Navbar from "./Navbar";
-import { useDarkTheme } from "../hooks";
+import { useTheme } from "../hooks";
 
 function Layout({ children }) {
-  const [theme, toggleTheme] = useDarkTheme();
+  const [theme, toggleTheme] = useTheme();
 
   return (
     <ThemeProvider theme={theme}>

@@ -1,38 +1,17 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Link } from "wouter";
-import { getCountries } from "../api";
 import { getErrorText } from "../utils";
 import Country from "../components/Country";
 import Select from "../components/Select";
 import SearchIcon from "../components/SearchIcon";
 import { devices } from "../utils";
+import { useCountries } from "../hooks";
 
 const REGIONS = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 const CountriesList = () => {
-  const [countries, setCountries] = useState([]);
-  const [filters, setFilters] = useState({});
-  const [error, setError] = useState(null);
-
-  const handleNameChange = (e) => {
-    setFilters({ name: e.target.value });
-  };
-
-  const handleRegionChange = (e) => {
-    setFilters({ region: e.target.value });
-  };
-
-  useEffect(() => {
-    getCountries(filters)
-      .then((data) => {
-        setCountries(data);
-        setError();
-      })
-      .catch((err) => {
-        setError(err);
-      });
-  }, [filters]);
+  const { countries, filters, error, handleNameChange, handleRegionChange } =
+    useCountries();
 
   return (
     <Wrapper>
