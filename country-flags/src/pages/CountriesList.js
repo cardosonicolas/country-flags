@@ -42,7 +42,7 @@ const CountriesList = () => {
             ({ name, capital, region, flags, population, alpha3Code: id }) => (
               <div key={id}>
                 <Link href={`/country/${id}`} key={name}>
-                  <a>
+                  <a href>
                     <Country
                       name={name}
                       capital={capital}
