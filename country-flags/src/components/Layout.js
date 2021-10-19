@@ -45,7 +45,7 @@ body {
       background-color: ${({ theme }) => theme.background};
       font-family: "Nunito Sans", sans-serif;
       color: ${({ theme }) => theme.text};
-      // transition: background-color 0.5s;
+      transition: background-color 0.2s;
 }
 
 #root {

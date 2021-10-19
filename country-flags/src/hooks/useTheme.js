@@ -15,7 +15,7 @@ const themes = {
     background: "hsl(0, 0%, 98%)",
     elements: "hsl(0, 0%, 100%)",
     text: "hsl(200, 15%, 8%)",
-    box_shadow: "0px 0px 10px 0px rgb(59 59 59 / 8%)",
+    box_shadow: "0px 0px 10px 0px rgb(59 59 59 / 30%)",
   },
 };
 
