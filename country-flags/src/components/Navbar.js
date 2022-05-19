@@ -19,7 +19,9 @@ const Navbar = ({ onChangeTheme, theme }) => {
           <ThemeIconWrapper>
             <ThemeIcon />
           </ThemeIconWrapper>
-          <ThemeText>{theme !== "light" ? "Dark" : "Light"} Mode</ThemeText>
+          <ThemeText>
+            {theme.mode !== "light" ? "Light" : "Dark"} Mode
+          </ThemeText>
         </ThemeMode>
       </Nav>
     </Wrapper>
